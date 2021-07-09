@@ -20,7 +20,6 @@ class SinglyLinkedList {
             this.tail.next = newNode;
             this.tail = newNode;
         }
-        this.length ++;2
         this.length ++;
         return this.length;
     }
