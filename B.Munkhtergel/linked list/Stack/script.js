@@ -14,7 +14,7 @@ class Stack {
 
     push (value) {
         let newNode = new Node (value);
-        if (!this.head) {
+        if (!this.first) {
             this.first = newNode;
             this.last = newNode;  
         } else {
@@ -26,24 +26,63 @@ class Stack {
     }
     pop() {
         if (this.size === 0) return undefined;
+        let newlast = this.first;
+        let deleteNode = newlast;
+        while (newlast.next) {
+            deleteNode = newlast;
+            newlast = newlast.next;
+        }
+        let oldLast = this.last;
+        this.last = deleteNode;
+        deleteNode.next =  null;
+        this.last.next = null;
         if(this.size === 1) {
             this.first = null;
             this.last = null;
-        } else {
-            let newlast = this.first;
-            let deleteNode = newlast.next;
-            while (deleteNode.next != null) {
-                deleteNode = deleteNode.next;
-                newlast = newlast.next;
-            }
-            this.last = newlast;
-            var popper =  this.last.next;
-            this.last.next = null;
         }
-        this.size--;
-        return popper;
+        this.size --;
+        return oldLast;
     }
+
+
 }
+class Queue {
+    constructor (){
+        this.first = null;
+        this.last = null;
+        this.size = 0;
+    }
+    push (value) {
+        let newNode = new Node (value);
+        if (!this.first) {
+            this.first = newNode;
+            this.last = this.first;
+        } else {
+            this.last.next = newNode;
+            this.last = newNode;
+        }
+
+        this.size ++;
+        return this.size;
+    }
+
+    shift () {
+        if (!this.size) return undefined;
+        let deleted = this.first;
+        this.first = deleted.next;
+        deleted.next = null;
+        if (this.size === 1) {
+            this.first - null;
+            this.last = null;
+        }
+
+        this.size --;
+        return deleted.value;
+    }
+
+}
+
+let queue =  new Queue ();
 
 stack = new Stack();
 stack.push(12);
