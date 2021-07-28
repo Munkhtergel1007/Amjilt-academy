@@ -164,3 +164,48 @@ linkedlist.push(13);
 linkedlist.push(14);
 linkedlist.push(15);
 
+const combineLists = (l1, l2) => {
+    let result = new SinglyLinkedList();
+	let list1 = new SinglyLinkedList();
+	let list2 = new SinglyLinkedList();
+
+	l1.forEach(el => list1.push(el));
+	l2.forEach(el => list2.push(el));
+	
+	
+	if (list1.length > list2.length) {
+		for(let i = list2.length; i < list1.length; i ++) {
+			list2.push(0);
+		}
+	}
+
+    for (let j = 0; j < list1.length; j ++) {
+        let el1 = list1.get(j);
+        let el2 = list2.get(j);
+        result.push(el1.value + el2.value);
+    }
+
+    let current = result.head;
+  
+
+    while(current.next) {
+        if (current.value >= 10) {
+            current.next.value += +current.value.toString()[0];
+            current.value = +current.value.toString()[1];
+        }
+        current = current.next;
+    }
+
+    if (current.value >= 10) {
+        result.push(+current.value.toString()[0]);
+        current.value = +current.value.toString()[1];
+    }
+    // if (current.value >= 10) {
+    //     result.push(0);
+    //     let preTail = result.get(result.length - 2);
+    //     result.tail.value += +preTail.value.toString()[0];
+    //     preTail.value = +preTail.value.toString()[1];
+    // }
+	console.log(result.print());
+}
+

@@ -78,43 +78,6 @@ const isBalanced = brackets => {
 }
 
 
-const matrice = (matriceA, matriceB) => {
-
-    let result = Array.from({length: matriceA.length}, () => []);
-
-    for (let i = 0; i < matriceA.length; i ++ ) {
-        for (let j = 0; j < matriceA.length; j ++) {
-
-            result[i].push (2 * matriceA[i][j] + matriceB[i][j]);
-
-        }
-    }
-
-    return result;
-}
-
-const multipleMatrices = (matriceA, matriceB, matriceC) => {
-    let multiple = Array.from({length: matriceA.length}, () => []);
-    let result = Array.from({length: matriceA.length}, () => []);
-
-
-    for (let i = 0; i < matriceA.length; i ++ ) {
-        for (let j = 0; j < matriceB[j].length; j ++) {
-            let sum = 0;
-            for (let k = 0; k < matriceA[i].length; k ++) {
-                sum += matriceA[i][k] * matriceB[k][j];
-            }
-            multiple[i].push(sum);
-        }
-    }
-    for (let o = 0; o < multiple.length; o ++) {
-        for (let p = 0; p < multiple[o].length; p ++) {
-            result[o].push(multiple[o][p] + matriceC[o][p])
-
-        }
-    }
-    return result;
-}
 
 
 
