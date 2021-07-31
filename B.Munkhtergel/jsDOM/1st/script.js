@@ -1,4 +1,4 @@
-// / querySelector = hamgiin tutuund taarsan element
+// querySelector = hamgiin tutuund taarsan element
 // querySelectorAll => DDL ( nextElementSibling )
 // getElementsByClassName => List
 // getElementById => gantshan el songono
