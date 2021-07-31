@@ -1,0 +1,141 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.generate {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* background-color: rgb(0, 162, 255); */
+}
+
+.generate input {
+  width: 250px;
+  padding: .75rem 1rem;
+  margin-bottom: 1rem;
+  border-radius: 20px;
+  border: 1px solid rgb(0, 162, 255);
+}
+
+.generate input#btn {
+  background-color: rgb(0, 162, 255);
+  color: white;
+  transition: .3s;
+}
+
+.generate input#btn:hover {
+  background-color: white;
+  color: rgb(0, 162, 255);
+  cursor: pointer;
+}
+
+.generate input:focus {
+  outline: none;
+}
+
+.profile {
+  width: 100%;
+  height: 100vh;
+  background-color: rgb(11, 187, 231);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.profile .user {
+  width: 350px;
+  height: 450px;
+  background-color: white;
+  position: relative;
+  border-radius: 8px;
+}
+
+.profile .user .avatar {
+  position: absolute;
+  background-color: saddlebrown;
+  width: 125px;
+  height: 125px;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.profile .user .avatar img {
+  width: 100%;
+}
+
+.profile .user .info {
+  width: 90%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 75px;
+  color: #999;
+}
+
+
+.profile .user .info h1 {
+  font-weight: 400;
+  color: rgb(66, 66, 66);
+}
+
+.profile .user .info p {
+  margin: .5rem 0;
+}
+
+.profile .user .info p.intro {
+  font-size: 20px;
+  text-align: center;
+}
+
+.profile .user .info .contact {
+  display: flex;
+  width: 30%;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 20px;
+  padding: 1rem 0;
+}
+.profile .user .info .followers {
+  display: flex;
+  width: 70%;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 20px;
+  padding: 1rem 0;
+}
+
+.profile .user .info .followers .details {
+  text-align: center;
+  font-size: .75rem;
+}
+
+.profile .user .info .followers .details h2 {
+  color: skyblue;
+}
+
+.profile .user .info button {
+  padding: 1rem 2rem;
+  border: 1px solid skyblue;
+  background-color: skyblue;
+  color: white;
+  border-radius: 4px;
+}
+
+.profile .user .info button:focus {
+  outline: none;
+}
+.none {
+  display: none;
+}
+
+a {
+  color: rgb(11, 187, 231);
+}

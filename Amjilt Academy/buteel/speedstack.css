@@ -1,0 +1,27 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+:root {
+  --textcolor: #606060;
+
+}
+
+body {
+  width: 100%;
+  height: 100%;
+}
+
+.container {
+  padding: .5rem 0;
+  width: 95%;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  height: 56px;
+}
+
+.container .logo {
+  color: red;
+}

@@ -1,0 +1,211 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+}
+
+.container { 
+  align-items: center;
+  flex-direction: column;
+  display: flex;
+  margin: 3rem auto 1rem auto;
+  border: 1px solid rgb(187, 185, 185);
+  width: 80%;
+  height: 20%;
+  border-radius: 1rem;
+  padding: 1rem;
+}
+
+.container .row{
+  width: 98%;
+  height: 50%;
+}
+.container .row i {
+  font-size: 1.5rem;
+  color: rgb(109, 107, 107);
+} 
+.container .row1 {
+  width: max-content;
+  height: 50%;
+  font-size: 2.5rem;
+  display: flex;
+  justify-content: space-between;
+}
+.container .row1 .section2 {
+  display: flex;
+}
+
+.main {
+  margin: auto;
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: auto auto auto auto auto auto auto;
+  padding: 10px;
+  width: 80%;
+  height: 60%;
+}
+
+.grid-item {
+  background-color: white;
+  border-radius: .5rem;
+  cursor: pointer;
+  transition: .3s;
+  border: 1px solid rgb(187, 185, 185);
+}
+.grid-item:hover {
+  background-color: rgb(187, 185, 185);
+}
+
+.main #button5 {
+  font-weight: 900;
+  color: rgb(1, 143, 1);
+  background-color: rgb(228, 221, 214);
+}
+
+#button4 {
+  color: red;
+  background-color: rgb(228, 221, 214);
+}
+
+#button6 {
+  color: rgb(1, 143, 1);
+  background-color: rgb(228, 221, 214);
+  font-weight: bold;
+}
+#button14 {
+  color: rgb(1, 143, 1);
+  background-color: rgb(228, 221, 214);
+}
+#button21 {
+  color: rgb(1, 143, 1);
+  background-color: rgb(228, 221, 214);
+}
+#button28 {
+  color: rgb(1, 143, 1);
+  background-color: rgb(228, 221, 214);
+}
+#button7 {
+  color: rgb(1, 143, 1);
+  background-color: rgb(228, 221, 214);
+}
+#button34 {
+  color: white;
+  background-color: rgb(84, 147, 168);
+}
+#button35 {
+  color: rgb(1, 143, 1);
+  background-color: rgb(228, 221, 214); 
+}
+#button11 {
+  font-weight: bold;
+  font-size: 16px;
+}
+#button12 {
+  font-weight: bold;
+  font-size: 16px;
+}
+#button13 {
+  font-weight: bold;
+  font-size: 16px;
+}
+#button18 {
+  font-weight: bold;
+  font-size: 16px;
+}
+#button19 {
+  font-weight: bold;
+  font-size: 16px;
+}
+
+#button20 {
+  font-weight: bold;
+  font-size: 16px;
+}
+
+#button25 {
+  font-weight: bold;
+  font-size: 16px;
+}
+#button26 {
+  font-weight: bold;
+  font-size: 16px;
+}
+#button27 {
+  font-weight: bold;
+  font-size: 16px;
+}
+
+#button32 {
+  font-weight: bold;
+  font-size: 16px;
+}
+
+#button33 {
+  font-weight: bold;
+  font-size: 16px;
+}
+#button34 {
+  font-weight: bold;
+  font-size: 16px;
+}
+
+#button1 {
+  background-color: rgb(228, 221, 214);
+}
+#button2 {
+  background-color: rgb(228, 221, 214);
+}
+#button3 {
+  background-color: rgb(228, 221, 214);
+}
+#button8 {
+  background-color: rgb(228, 221, 214);
+}
+#button9 {
+  background-color: rgb(228, 221, 214);
+}
+#button10  {
+  background-color: rgb(228, 221, 214);
+}
+#button15 {
+  background-color: rgb(228, 221, 214);
+}
+#button16{
+  background-color: rgb(228, 221, 214);
+}
+#button17 {
+  background-color: rgb(228, 221, 214);
+}
+#button22{
+  background-color: rgb(228, 221, 214);
+}
+#button23 {
+  background-color: rgb(228, 221, 214);
+}
+#button24 {
+  background-color: rgb(228, 221, 214);
+}
+#button29 {
+  background-color: rgb(228, 221, 214);
+}
+#button30 {
+  background-color: rgb(228, 221, 214);
+}
+#button31 {
+  background-color: rgb(228, 221, 214);
+}
+
+
+
+
+
+
+
+
+
+

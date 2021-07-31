@@ -1,0 +1,139 @@
+@import url("https://fonts.googleapis.com/css2?family=Alice&family=Playfair+Display+SC:ital@0;1&family=Sacramento&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Playfair Display SC", serif;
+  font-weight: 400;
+}
+
+a {
+  font-family: "Sacramento", serif;
+  color: #000;
+  text-decoration: none;
+}
+
+p, ul, li {
+  font-family: "Alice", serif;
+}
+
+.header {
+  width: 100%;
+}
+
+.header__mobile {
+  width: 100%;
+  padding: .5rem 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.header__mobile h1 {
+  font-style: italic;
+}
+
+.header__mobile .logo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.header__mobile .logo h1 {
+  font-style: normal;
+}
+
+.header__mobile .logo img {
+  width: 50px;
+  margin: 0 10px;
+}
+
+.header__mobile .logo p {
+  font-family: "Playfair Display SC", serif;
+  font-size: 11.7px;
+  color: #444;
+  letter-spacing: 0.5em;
+}
+
+.header__mobile .icon {
+  padding: 0 1.5rem;
+}
+
+.header__hero {
+  width: 100%;
+  height: 100vh;
+  background-image: url(https://cdn.shopify.com/s/files/1/0261/4687/t/7/assets/img_homepage_slider1.jpg?v=839847293968337857);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.header__hero h1 {
+  font-style: italic;
+}
+
+.header__hero h1 {
+  font-size: 36px;
+  padding: 0px 36px 27px 36px;
+  text-align: center;
+  line-height: 1;
+  color: #fff;
+  border-bottom: 1px solid #fff;
+}
+
+.header__hero a {
+  color: #fff;
+  -webkit-transition: .3s;
+  transition: .3s;
+  font-size: 54px;
+}
+
+.header__hero a:hover {
+  color: #c7d93b;
+  cursor: pointer;
+}
+
+@media (min-width: 1024px) {
+  .header__hero {
+    background-position: center top;
+  }
+}
+/*# sourceMappingURL=styles.css.map */
