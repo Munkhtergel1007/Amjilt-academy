@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    class Node {
+      constructor(value){
+        this.value = value;
+        this.next = null;
+        this.prev = null;
+      }
+    }
+
+    class DoublyLinkedlist {
+      constructor(){
+        this.head = null;
+        this.tail = null;
+        this.length = 0;
+      }
+
+      push(value){
+        let newNode = new Node(value);
+        if(!this.head) {
+          this.head = newNode;
+          this.tail = newNode;
+        } else {
+          let temp = this.tail;
+          this.tail.next = newNode;
+          newNode.prev = this.tail;
+          this.tail = newNode;
+        }
+
+        this.length ++;
+        return this;
+      }
+
+      pop(){
+        let temp = this.tail;
+        if(this.length === 0) {
+          return undefined;
+        } 
+        if(this.length === 1){
+          this.head =  null;
+          this.tail = null;
+        } else {
+          this.tail = this.tail.prev;
+          this.tail.next = null;
+        }
+
+        this.length --;
+        return temp;
+      }
+
+      shift(){
+        let temp = this.head;
+        if(this.length === 0) {
+          return undefined;
+        }
+        if(this.length === 1){
+          this.head = null;
+          this.tail = null;
+        } else {
+          this.head = this.head.next;
+          this.head.prev = null;
+          temp.next = null;
+        }
+
+        this.length --;
+        return temp;
+      }
+      unshift(value){
+        let newNode = new Node(value);
+        if(this.length === 0) {
+          this.head = value;
+          this.tail = value;
+        } else {
+          this.head.prev = newNode;
+          newNode.next = this.head;
+          this.head = newNode;
+      }
+        this.length ++;
+        return this;
+        
+      }
+      get(index){
+          let current;
+          let counter;
+          if(index < 0 || index >= this.length){
+              return null;
+          } 
+          if(index >= parseInt(this.length / 2)){
+            current = this.tail;
+            counter = this.length - 1;
+            while(counter > index) {
+              current = current.prev;
+              counter --;
+            }
+          } else {
+            current = this.head;
+            counter = 0; 
+            while(index > counter){
+              current = current.next;
+              counter ++;
+            } 
+          }
+          return current;
+      } 
+
+      set(index, value){
+        let findNode = this.get(index);
+          if(!findNode){
+            return false;
+          } else {
+            findNode.value = value;
+            return true;
+          }
+      }
+
+      insert(index, value){
+        let newNode = new Node(value);
+        if(index < 0 || index > this.length){
+          return false;
+        } 
+        if(index === 0){
+          return this.unshift(value);
+        } else{
+          if(index === this.length){
+            return this.push(value);
+          }
+        }
+
+        let temp = this.get(index - 1);
+        let temp1 = temp.next;
+
+        newNode.next = temp1;
+        temp1.prev = newNode;
+        newNode.prev = temp;
+        temp.next = newNode;
+        this.length ++;
+        return true;
+
+      }
+
+      remove(index){
+        if(index < 0 || index >= this.length) {
+          return undefined;
+        }
+        if(index === 0) {
+          return this.shift();
+        }
+        if(index === this.length - 1){
+          return this.pop()
+        }
+
+        let temp = this.get(index - 1);
+        let temp1 = temp.next;
+
+        temp.next = temp1.next;
+        temp1.next.prev  = temp;
+        temp1.prev =  null;
+        temp1.next = null;
+
+        this.length --;
+        return temp1;
+      }
+    }
+
+    linkedlist = new DoublyLinkedlist();
+    linkedlist.push(1);
+    linkedlist.push(2)
+    linkedlist.push(3)
+    linkedlist.push(4)
+    linkedlist.push(5)
+
+  </script>
+</body>
+</html>

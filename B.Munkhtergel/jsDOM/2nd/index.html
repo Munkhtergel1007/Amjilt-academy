@@ -21,7 +21,7 @@
         <input id="url" type="text" placeholder="url"
             class="py-2 px-4 border rounded-l-full border-green-400 border-r-0">
         <button id="btn"
-            class="py-2 px-4 border border-green-400 rounded-r-full bg-green-400 text-white border-l-0">Insert
+            class="py-2 px-4 border border-green-400 rounded-r-full bg-green-400 text-white">Insert
             Picture</button>
     </div>
     <div class="container mx-auto grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-4">
@@ -48,8 +48,8 @@
             </div>
 
             <div class="modal__footer flex border-t border-gray-300 justify-end py-2 px-4">
-                <button class="py-2 px-6 border border-green-400 rounded-2xl mr-6 text-green-400">Cancel</button>
-                <button class="py-2 px-6 border border-green-400 rounded-2xl text-green-400">Okay</button>
+                <button class="x1 py-2 px-6 border border-green-400 rounded-2xl mr-6 text-green-400 hover:bg-green-400 hover:text-white ">Cancel</button>
+                <button class="x2 py-2 px-6 border border-green-400 rounded-2xl text-green-400 hover:bg-green-400 hover:text-white ">Okay</button>
             </div>
         </div>
     </div>
@@ -69,24 +69,27 @@
         function resetInput() {
             url.value = ''
         }
-
+    
         btn.addEventListener('click', () => {
-            // images.push(url.value);
-            // resetInput();
-            // container.innerHTML = '';
-            // displayImages();
-            document.body.insertAdjacentHTML('beforeend', '<p>123</p>')
+            images.push(url.value);
+            resetInput();
+            container.innerHTML = '';
+            displayImages();
+            
+            // document.body.insertAdjacentHTML('beforeend', '<p>123</p>')
         })
 
         function displayImages() {
             images.forEach(el => {
-                container.insertAdjacentHTML('beforeend', `
-                    <div style="background-image: url(${el})" class="h-64 box rounded-3xl bg-cover bg-center overflow-hidden shadow-xl bg-red-400 relative">
-                        <div id="closeBtn" class="h-10 closeBtn w-10 flex items-center justify-center absolute right-4 top-4 border border-white rounded-full transition duration-300 hover:bg-red-400 hover:text-white cursor-pointer transform translate-x-16 bg-white">
-                            <i class="fas fa-times"></i>
+                if (el){
+                    container.insertAdjacentHTML('beforeend', `
+                        <div style="background-image: url(${el})" class="h-64 box rounded-3xl bg-cover bg-center overflow-hidden shadow-xl bg-red-400 relative">
+                             <div id="closeBtn" class="h-10 closeBtn w-10 flex items-center justify-center absolute right-4 top-4 border border-white rounded-full transition duration-300 hover:bg-red-400 hover:text-white cursor-pointer transform translate-x-16 bg-white">
+                                <i class="fas fa-times" id="closeBtn"></i>
+                            </div>
                         </div>
-                    </div>
-                `)
+                    `)
+                }
             })
         }
 
@@ -112,7 +115,11 @@
                 images.splice(index, 1);
                 container.innerHTML = '';
                 displayImages();
-            }       
+            } 
+            
+            if(e.target.classList.contains('x1') || e.target.classList.contains('x2')){
+                modal.classList.add('hidden');
+            }
         })
     </script>
 </body>

@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+
+
+
+      class Node {
+        constructor(value){
+          this.value = value;
+          this.next = null;
+        }
+      }
+
+      class SinglyLinkedlist{
+        constructor(){
+          this.head = null;
+          this.tail = null;
+          this.length = 0;
+        }
+
+        push(value){
+          let newNode = new Node(value);
+
+          if(!this.head) {
+            this.head = newNode;
+            this.tail = newNode;
+          } else {
+            this.tail.next = newNode;
+            this.tail = newNode;
+          }
+
+          this.length ++;
+          return this;
+        }
+
+        pop(){
+          
+          if(!this.head){
+            return undefined;
+          }
+
+          let current = this.head;
+          let newTail = current;
+          while(current.next){
+            newTail = current;
+            current = current.next;
+          }
+          this.tail = newTail;
+          this.tail.next = null;
+
+          this.length --;
+
+          if(this.length === 0) {
+            this.head = null;
+            this.tail = null;
+          }
+          return current;  
+        }
+
+        shift(){
+          if(!this.head) {
+            return undefined;
+          } 
+          let temp = this.head;
+          this.head = this.head.next;
+          if(this.length === 0){
+            this.head = null;
+            this.tail = null;
+          }
+          this.length --;
+          return temp;
+        }
+
+        unshift(value){
+          let newNode = new Node (value);
+
+          if(!this.head){
+            this.head = newNode;
+            this.tail = newNode;
+          }
+
+          newNode.next = this.head;
+          this.head = newNode;
+          
+          this.length ++; 
+          return this;
+        }
+
+        get(index){
+          if(this.length <= index || index < 0){
+            return null;
+          }
+          let current = this.head;
+          let counter = 0;
+          while(counter !== index) {
+            current = current.next;
+            counter ++;
+          }
+          // for(let i = 0; i < index; i ++){
+          //     current = current.next;
+          // }
+          return current; 
+
+        }
+
+        set(value, index){
+          // if(this.get(index)){
+          //   this.get(index).value = value;
+          // } else return false;
+
+          // return true;
+
+          let findNode = this.get(index);
+          if(!findNode) return false;
+            else {
+              findNode.value = value;
+              return true;  
+            }
+
+        } 
+
+        insert(value, index){
+
+          if(index < 0 || index > this.length) {
+            return false;
+          } else if(index === this.length) {
+              return this.push(value);
+          } else if(index === 0){
+              return this.unshift(value);
+          }
+        
+          let newNode = new Node(value);
+          let temp = this.get(index - 1);
+          let temp1 = temp.next;
+
+          if (!temp){
+            return false;
+          } else {
+            temp.next = newNode;
+            newNode.next = temp1;
+          }
+
+          this.length ++;
+          return true;
+        }
+
+        remove(index){
+          if (index < 0 || index > this.length){
+            return undefined;
+          } else if(index === 0) {
+            return this.shift();
+          } else if (index === this.length - 1){
+            return this.pop();
+          }
+
+          let temp = this.get(index - 1);
+          let temp1 = temp.next;
+
+          if (!temp) {
+            return false;
+          } else {
+            temp.next = temp1.next;
+          }
+          this.length --;
+          return this;
+        }
+
+        print(){
+          let result = [];
+     
+          let i = 0;
+          let current = this.head;
+          while(i < this.length) {
+            result.push(current.value);
+            current = current.next;
+            i ++;
+          }
+
+          return result;
+        }
+        
+        reverse(index1, index2){
+          this.head = this.get(index1);
+          this.tail = this.get(index2);
+
+
+          let node = this.head;
+          this.head = this.tail;
+          this.tail = node;
+
+          let next = null;
+          let prev = null;
+
+          for(let i = 0; i < this.length; i ++) {
+              next = node.next;
+              node.next = prev;
+              prev = node;
+              node = next;  
+          }
+          return this;  
+        }
+      }
+      
+
+      let linkedlist = new SinglyLinkedlist();
+      linkedlist.push(12);
+      linkedlist.push(13);
+      linkedlist.push(14);
+      linkedlist.push(15);
+
+
+
+  </script>
+</body>
+</html>

@@ -252,7 +252,7 @@ class Node {
 	}
 }
 
-class SinglyLinkedList {
+class SinglyLinkedList {	
 	constructor() {
 		this.head = null;
 		this.tail = null;
@@ -289,8 +289,8 @@ const combineLists = (l1, l2) => {
 	let list1 = new SinglyLinkedList();
 	let list2 = new SinglyLinkedList();
 
-	list1.forEach(el => list1.push(el));
-	list2.forEach(el => list2.push(el));
+	l1.forEach(el => list1.push(el));
+	l2.forEach(el => list2.push(el));
 	
 	
 	if (list1.length > list2.length) {
