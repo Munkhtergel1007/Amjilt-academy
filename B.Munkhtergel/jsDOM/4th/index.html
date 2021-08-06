@@ -20,7 +20,9 @@
                 <li class="py-4 px-8 hover:bg-white hover:text-green-400 transition duration-300 cursor-pointer">Home</li>
                 <li class="py-4 px-8 hover:bg-white hover:text-green-400 transition duration-300 cursor-pointer">About</li>
                 <li class="py-4 px-8 hover:bg-white hover:text-green-400 transition duration-300 cursor-pointer">Service</li>
-                <li class="py-4 px-8 hover:bg-white hover:text-green-400 transition duration-300 cursor-pointer">Contact</li>
+                <li class="py-4 px-8 hover:bg-white hover:text-green-400 transition duration-300 cursor-pointer">
+                    <a href="./login.html">Login</a>
+                </li>
             </ul>
         </div>
     </header>
@@ -46,34 +48,33 @@
     </div>
 
     <main class="w-full my-6">
-        <div class="container mx-auto flex flex-col items-center justify-center h-screen" >
-            <form class="w-1/5" >  
-                <label class="font-bold" for="name">ovog ner</label>
-                <input type="text" class="border border-gray-400 rounded-xl py-2 px-4 mt-2 mb-4 focus:outline-none" id="name" placeholder="ovog ner">
+        <div class="container flex flex-col h-screen items-center justify-center mx-auto">
+            <form class="w-3/5 lg:w-1/5 mb-8">
+                <label class="font-bold" for="fullname">Овог нэр</label>
+                <input class="border focus:outline-none mt-2 mb-4 w-full border-gray-400 rounded-xl py-2 px-4" type="text" id="fullname" placeholder="Овог нэр" />
 
-                <label class="font-bold" for="email">email</label>
-                <input type="text" class="border border-gray-400 rounded-xl py-2 px-4 mt-2 mb-4 focus:outline-none" id="email" placeholder="email">
+                <label class="font-bold" for="email">Email</label>
+                <input class="border focus:outline-none mt-2 mb-4 w-full border-gray-400 rounded-xl py-2 px-4" type="email" id="email" placeholder="Email" />
 
-                <label class="font-bold" for="number">utasnii dugaar</label>
-                <input type="text" class="border border-gray-400 rounded-xl py-2 px-4 mt-2 mb-4 focus:outline-none" id="number" placeholder="utasnii dugaar">
+                <label class="font-bold" for="number">Утасны дугаар</label>
+                <input class="border focus:outline-none mt-2 mb-4 w-full border-gray-400 rounded-xl py-2 px-4" type="number" id="number" placeholder="Утасны дугаар" />
 
-                <label class="font-bold" for="password">nuuts ug</label>
-                <input type="password" class="border border-gray-400 rounded-xl py-2 px-4 mt-2 mb-4 focus:outline-none" id="password" placeholder="nuuts ug">
+                <label class="font-bold" for="password">Нууц үг</label>
+                <input class="border focus:outline-none mt-2 mb-4 w-full border-gray-400 rounded-xl py-2 px-4" type="password" id="password" placeholder="Password" />
 
-                <label class="font-bold" for="password--compirm">nuuts ug davtah</label>
-                <input type="password" class="border border-gray-400 rounded-xl py-2 px-4 mt-2 mb-4 focus:outline-none" id="password--compirm" placeholder="password comfirm">
-
-                <button class="w-full rounded-xl py-2 px-4 mt-1 mb-1 bg-green-400" id="btn">Burtgeh</button>
+                <label class="font-bold" for="password--confirm">Нууц үг давтах</label>
+                <input class="border focus:outline-none mt-2 mb-4 w-full border-gray-400 rounded-xl py-2 px-4" type="password" id="password--confirm" placeholder="Password confirm" />
+                <button id="btn" class="bg-green-400 text-white w-full py-2 px-4 rounded-xl" type="submit">Бүртгэх</button>
             </form>
 
-            <div class="w-1/5 h-1/5">
-                <p class="letters">jijeg useg orson baih ystoi</p>
-                <p class="letters">tom useg orson baih ystoi</p>
-                <p class="letters">too orson bauh ystoi</p>
-                <p class="letters">special char orson baih ystoi</p>
-                <p class="letters">8 aas urt urttai baih ystoi</p>
+            <div class="w-3/5 lg:w-1/5">
+                <p class="check">Жижиг үсэг орсон байх ёстой.</p>
+                <p class="check">Том үсэг орсон байх ёстой.</p>
+                <p class="check">Тоо орсон байх ёстой.</p>
+                <p class="check">Тэмдэгт орсон байх ёстой.</p>
+                <p class="check">Хамгийн багадаа 8 тэмдэгт орсон байх ёстой.</p>
             </div>
-        </div> 
+        </div>
     </main>
 
     <script src="script.js"></script>
