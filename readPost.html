@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+</head>
+<body class="bg-gray-100">
+    <main class="container mx-auto my-4 py-4 px-8 shadow-xl rounded-xl bg-white w-4/5 items-center">
+        <div class="post__owner flex overflow-hidden h-9 mb-5">
+            <img id="owner_avatar" class="h-full mr-1 rounded-full"src="" alt="">
+            <p id="owner_name"></p>
+        </div>
+        <div class="post__title" >
+            <h1 class="text-xl font-bold" id="post__title">garchig</h1>
+        </div>
+        <div class="post__body my-2">
+            <p id="post__body">Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae quaerat, id quas tempore eius praesentium odio dicta aperiam fuga delectus molestiae culpa, nisi eum deserunt! Porro adipisci beatae unde itaque.
+            Officiis incidunt, exercitationem quos quia nam libero odit. Error pariatur dolore quia placeat corporis porro eveniet consequuntur laborum unde libero? Iste obcaecati perferendis debitis pariatur exercitationem at dolorem, odio accusantium.
+            Quod libero labore aliquid, sit quas dolorem. Error tempore, iusto veniam ipsum delectus dolorem enim excepturi temporibus rem ut totam nisi deleniti doloribus officia rerum blanditiis quam officiis nemo vero!
+            Aut similique vitae vero ex quod doloremque repudiandae? Autem culpa excepturi earum, laudantium nulla unde inventore maxime dicta veritatis velit architecto hic optio incidunt dolorum beatae ad? Quibusdam, error distinctio!
+            Laudantium maiores quia, eius temporibus tempore commodi molestiae distinctio et officia quisquam numquam, consectetur voluptas dolores eligendi cumque est libero ullam velit quidem facilis odio quibusdam sunt sed! Corporis, nulla.
+            Non optio mollitia reiciendis soluta qui fuga quasi saepe iusto nemo in. Quas numquam quam vel. Eius, repellat! Nostrum deleniti officiis veritatis tempora, voluptatum sit nesciunt quas laboriosam voluptas perferendis.
+            Similique amet magni consequatur reprehenderit nihil delectus facilis repudiandae eius quas qui, laborum, unde nisi ipsa nostrum blanditiis porro nesciunt ipsum. Omnis quis ratione magnam exercitationem culpa beatae tempora aut.
+            Nesciunt porro mollitia eos, earum ipsa, expedita natus cumque consequuntur quos sint quasi blanditiis similique! Aliquid ex, fuga tempore fugit accusantium vitae vero, nemo repellat maxime corrupti ratione architecto a.
+            Corrupti vitae aspernatur minus, reprehenderit exercitationem adipisci ipsam, provident fugiat quibusdam temporibus ratione, aliquam voluptatum veritatis. Possimus amet libero rerum hic, quasi perferendis tempore. Dolore inventore voluptatem ipsam mollitia iusto?
+            Magni voluptatum cupiditate fugiat minima omnis non asperiores voluptas blanditiis nihil, quidem iste exercitationem, nemo aperiam consequatur numquam eum ratione modi eos velit fugit ipsum corrupti atque quasi. Quisquam, quasi!</p>
+        </div>
+    </main>
+
+    <div class="comment mx-auto">
+        <form class="flex px-8 w-4/5 py-4 bg-white rounded-xl shadow-xl mx-auto">
+            <!-- <input class="py-2 px-4 border-gray-300 rounded-xl border focus:outline-none mb-4" type="text" placeholder="Post title" id="title"> -->
+            <textarea class="py-2 px-4 border-gray-300 rounded-xl border focus:outline-none w-4/5" type="text" placeholder="Comment text" rows="1" id="body"></textarea>
+            <input id="btn--post" class="py-3 px-5 rounded-xl bg-indigo-400 text-white cursor-pointer transition duration border border-indigo-400 font-bold hover:bg-white hover:text-indigo-400" type="submit" value="Коммент оруулах">
+        </form>
+    </div>
+
+    <script>
+        class Comment {
+            constructor(text, created, userId, postId, id){
+                this.text = text;
+                this.created = new Date();
+                this.userId = userId;
+                this.postId = postId;
+                this.id = id;
+            }
+        }
+        const post_Owner = document.querySelector('#post_owner')
+        const btnComment = document.querySelector("#btn--post")
+        const postTitle = document.querySelector('#post__title');
+        const postBody = document.querySelector('#post__body');
+        const owner_avatar = document.querySelector("#owner_avatar");
+        const owner_name = document.querySelector('#owner_name');
+
+        let currentPost, users;
+        if (localStorage['users']) {
+            users = JSON.parse(localStorage['users'])
+        }
+
+        if (localStorage['currentPost']){
+            currentPost = JSON.parse (localStorage['currentPost']);
+            postTitle.innerHTML = currentPost.title;
+            postBody.innerHTML = currentPost.body
+        }
+
+        owner_avatar.src = users.find(el => el.id === currentPost.userId).avatar;
+        owner_name.innerText = users.find(el => el.id === currentPost.userId).fullname;
+        
+    </script>
+</body>
+</html>

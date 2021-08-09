@@ -1,209 +1,260 @@
-// querySelector = hamgiin tutuund taarsan element
-// querySelectorAll => DDL ( nextElementSibling )
-// getElementsByClassName => List
-// getElementById => gantshan el songono
+// let arr = [12, 0 , 3];
+// let x = 0;
 
-// DOM - Document oriented Model
-
-// const tags = document.querySelector('.pTag');
-
-// background-color => backgroundColor
-// line-through
-// const imgContainer = document.querySelector('.imgContainer');
-// const modal = document.querySelector('.modal');
-
-// let imgURL = '';
-
-// imgContainer.onclick = function(){
-//     modal.classList.remove('hidden');
-//     imgURL = imgContainer.style.backgroundImage.split('"')[1];
-
-//     modal.children[0].children[1].children[0].src = imgURL
+// for (let i = 0; i <= 2; i ++) {
+//     if (arr[i] == 0) {
+//         x ++;
+//     }
 // }
 
-// document.addEventListener('click', e => {
-//     if(e.target.id === 'close'){
-//         modal.classList.add('hidden')
+// console.log(x);
+
+// for (let i = 0; i < 100; i ++) {
+//     console.log("Sain Baina Uu")
+// }
+
+// for (let i = 10; i <= 99; i ++) {
+//     console.log (i);
+// }
+
+// a = 2;
+// b = 3;
+// p = 1;
+
+
+// for (let i = 1; i <= b; i ++) {
+//     p = p * a;
+// }
+
+// console.log (p);
+
+
+// let n = (prompt("toogoo oruulna uu"));
+// let s = 0;
+// let i;
+
+// console.log(n.length);
+
+// for (i = 0; i < n.length; i ++) {
+//     s = s + parseInt(n[i]);
+// }
+// console.log(s);
+
+// x = 0;
+// for (i = 0; i < n.length; i ++) {
+//     if (parseInt(n[i]) % 2 === 0) {
+//         x ++;
 //     }
+// }
 
-//     if(e.target.classList.contains('modal')){
-//         modal.classList.add('hidden')
+// console.log(x);
+
+// x = 0;
+// for (i = 0; i < n.length; i ++) {
+//      if (parseInt(n[i]) % 3 == 0) {
+//          x ++;
 //     }
-// })
+// }
+
+// console.log(x);
 
 
-// onChange, onInput - input
+// s = 0;
+// for (i = 0; i < n.length; i++) {
+//     if (parseInt(n[i]) % 2 === 0) {
+//         s+=parseInt(n[i]);
+//     }
+// }
+
+// console.log(s);
+
+// let o = n.length - 1;
+// x = 0;
+// p = false;
+// for (i = 0; i < n.length / 2; i ++) {
+//     if (n[i] != n[o]) {
+//         console.log('NO');
+//         i = n.length;
+//         p = true;
+//     }
+//     o --;
+// }
+// if (p == false) {
+//     console.log('YES');
+// }
 
 
-// Regular Expression  /yl;rthkye;lk/
-// Input Validation - nuutsugA3$^^*
+// s = 0;
+// for (i = 1; i <= parseInt(n); i ++) {
+//     if (parseInt(n) % i === 0) {
+//         s ++;
+//     }
+// }
 
-// 
-// i - ignore the case;
-// g - taarch bui buh case-uudiig tsugluulj butsaana
-// | - or logic
-// * - 0 bolon tuunees ih niilemj
-// + - dor hayj neg udaa bna
-// ^ - carret - temdegt moriin hamgiin ehnii character
-// $ - temdegt moriin hamgiin suuliin element
-// []
-// a-z - buh jijig useg;
-// A-Z - buh tom useg;
-// 0-9 - buh toonuud
-// \ - escape operator
-// \W - [^a-zA-X0-9_] special character   ()!@#$%^&*-=+. 
-// \w - [a-zA-X0-9_];
-// \D - [^0-9];
-// \d - [0-9];
-// \S - [^ ];
-// \s - [ ];
+// console.log(s);
 
-// {8} - temdegtiin urt
-// {8,} - hamgiin bagadaa 8 shirhet element
-// {1,8} - intervals
-// {,12} - 12-s ihgui 
+// p = true;
 
-// let regEx = /\S/g;
-// let sentence = 'Mongol uls 3.5 say hun amtai. Mongol uls 21 aimagtai. I"m sportsman';
+// for (i = 2; i < parseInt(n); i ++) {
+//     if (parseInt(n) % i === 0) {
+//         i = parseInt(n); 
+//         console.log ('NO');
+//         p = false;
+//     }
+// }
 
-// console.log(sentence.match(regEx));
+// if (parseInt(n) === 1 || parseInt(n) === 2) {
+//     console.log('NO');
+// } 
+// else {
+//     if (p == true) {
+//         console.log ('YES');
+//     }
+// }
 
-const passwordInput = document.querySelector('#password');
-const passwordConfirm = document.querySelector('#password--confirm');
-const smallLetter = document.querySelectorAll('.check');
-const btn = document.querySelector('#btn');
+//  s = 0;
+//  a = 3;
 
-const fullnameInput = document.querySelector('#fullname');
-const emailInput = document.querySelector('#email');
-const numberInput = document.querySelector('#number');
+// function myFunction (a) {
+//     if (a === 1) return 1;
+//     return a * myFunction(a - 1);
+// }
 
-class User {
-    constructor(email, fullname, password, number){
-        this.email = email;
-        this.fullname = fullname;
-        this.password = password;
-        this.number = number
-    }
-}
 
-let formIsValid = false;
-let passwordIsValid = false;
-let passwordMatched = false;
+// function hello (list1, list2) {
+//     let medain = 0;
+//     let sortedarray = list1.concat(list2).sort(function (a, b) {
+//         return a - b;
+//     });
+//     if(sortedarray.length % 2 === 0) {
+//         medain = (sortedarray[sortedarray.length/2] + sortedarray[sortedarray.length/2 - 1]) / 2;
+//     }
+//         else {
+//             medain = sortedarray[Math.floor(sortedarray.length/2)];
+//         }
+//     return medain;
+// }
 
-let users = []; // 1 users
+// let name = prompt ('username');
+// let email = prompt('email')
+// let number = prompt('phonenumber');
+// let profession = prompt ('profession');
 
-if(localStorage['users']){
-    users = JSON.parse(localStorage['users'])
-}
+// const Person = function(fullname, email, phoneNumber, profession){
+//     this.fullname = fullname;
+//     this.email = email;
+//     this.phoneNumber = phoneNumber;
+//     this.profession = profession;
+// }
 
-// local 1 users
+// let user = new Person( 'B.Munkhtergel', 'tergel@gmail.com',  99961444, 'student');
 
-passwordInput.addEventListener('input', () => {
-    let regExp =[/[a-z]/, /[A-Z]/, /\d/, /\W/, /.{8,}/];
-
-    let regExInput = /(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*\W)(?=.{8,})/;
-
-    if(regExInput.test(passwordInput.value)){
-        passwordInput.classList.add('border-green-400');
-        passwordInput.classList.remove('border-red-400');
-        passwordIsValid = true;
-    } else {
-        passwordInput.classList.remove('border-green-400');
-        passwordInput.classList.add('border-red-400');
-        passwordIsValid = false;
-    }
-
-    regExp.forEach((exp, index) => {
-        if(exp.test(passwordInput.value)){
-            addClasses(index)
-        } else {
-            removeClasses(index)
-        }
-    })
-})
-
-function addClasses(index){
-    smallLetter[index].classList.add('text-gray-500');
-    smallLetter[index].classList.add('line-through');
-    smallLetter[index].classList.remove('text-red-500');
-}
-
-function removeClasses(index){
-    smallLetter[index].classList.remove('text-gray-500');
-    smallLetter[index].classList.remove('line-through');
-    smallLetter[index].classList.add('text-red-500');
-}
-
-passwordConfirm.addEventListener('input', () => {
-    if(passwordInput.value === passwordConfirm.value){
-        passwordConfirm.classList.remove('border-red-400')
-        passwordConfirm.classList.add('border-green-400')
-        passwordMatched = true
-    } else {
-        passwordConfirm.classList.add('border-red-400')
-        passwordConfirm.classList.remove('border-green-400')
-        passwordMatched = false
-    }
-})
+// // Person.prototype.getName = function() {
+// //     return this.fullname;
+// // }
+// Person.prototype.setName = function(arg){
+//     this.fullname = arg;
+//     return this.fullname;
+// }
 
 
 
-btn.addEventListener('click', e => {
-    e.preventDefault();
-    if(fullnameInput.value === ''){
-        fullnameInput.classList.add('border-red-400');
-        formIsValid = false
-    } else {
-        fullnameInput.classList.remove('border-red-400');
-        formIsValid = true
-    }
+// const Person = function (question, answer, result) {
+//     this.answer = answer;
+//     this.question = question;
+//     this.result = result;
+// }
 
-    if(emailInput.value === ''){
-        emailInput.classList.add('border-red-400');
-        formIsValid = false
-    } else {
-        emailInput.classList.remove('border-red-400');
-        formIsValid = true
-    }
-
-    if(numberInput.value === ''){
-        numberInput.classList.add('border-red-400');
-        formIsValid = false
-    } else {
-        numberInput.classList.remove('border-red-400');
-        formIsValid = true
-    }
-
-    if(formIsValid && passwordIsValid && passwordMatched){
-        const user = new User(
-            emailInput.value,
-            fullnameInput.value,
-            passwordInput.value,
-            numberInput.value
-        )
-
-        users.push(user);
-        localStorage.setItem('users', JSON.stringify(users));
-        resetForm();
-    }
-})
+// let user = new Person ('Mongol jiliin heden uliraltai ve?', [2, 3, 1, 4], 4);
 
 
-function resetForm(){
-    fullnameInput.value = '';
-    emailInput.value = '';
-    numberInput.value = null;
-    passwordInput.value = '';
-    passwordConfirm.value = '';
-}
+// Person.prototype.get = function () {
+//     console.log (this.question);
+//     for (let i = 0; i < this.answer.length; i ++) {
+//         console.log (`${i + 1}: ${this.answer[i]}`);
+//     }-
+//     // let a = parseInt(prompt('Ta zuv haruiltiin indexiig oruulna uu'));
+    
+//     // if (a ===  this.result) {
+//     //     console.log (`Haruilt zuv baina`);
+//     // }else {
+//     //     console.log (`Haruilt buruu baina`);
+//     // }
+// }
+
+
+// Person.prototype.checkAnswer = function (answer) {
+//     if (this.result === answer) {
+//         console.log (`zuv haruilllaaa`)
+//     } else {
+//         console.log ( `buruu  haruillaa dahin oroldono uu`)
+//     }
+// }
+// user.get();
+// let a = parseInt(prompt('Ta zuv haruiltiin indexiig oruulna uu'));
+// user.checkAnswer(a)
 
 
 
+// class Person {
+//     constructor(fullname, email) {
+//         this.fullname = fullname;
+//         this.email = email;
+//     }
+//     getName() {
+//         return this.fullname;
+//     }
+//     changeName(arg) {
+//         this.fullname = arg;
+//         return this.fullname;
+//     }
+// }
+
+// let user = new Person ('Steve Jobs', 'steve@meal.com');
+// let teacher = new Teacher ('Teacher', 'teacher@gmail.com', 'hardworker');
+
+// class Teacher extends Person {
+//     constructor (fullname, email, workfeild) {
+//         super (fullname, email);
+//         this.workfeild = workfeild;
+//     }
+// }
+
+
+// const getDigit = (num, i) => {
+//     return Math.floor(Math.abs(num) / Math.pow(10, i)) % 10;
+// }
+// const countDigits = num => {
+//     return num.toString().length;
+// } 
+
+// const convert = num => {
+//     let loop = countDigits(num);
+//     let a = "";
+//     let underten = ['zero', 'one' , 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine'];
+//     let ten = ['', 'ten', 'twenty', 'thirty', 'forty', 'fifty', 'sixty', 'seventy', 'eighty', 'ninety']
+//     if (loop === 1) {
+//         return underten[num];
+//     }
+//     for (let i = loop - 1; i >= 0; i--) {
+//         if (i === 0) console.log (underten[getDigit(num, i)]);
+//         if (i === 1) console.log (ten[getDigit(num, i)]);
+//         if (i === 2) console.log (underten[getDigit(num, i)] + ` hundred`);
+//         if (i === 3 && getDigit(num, i) !== 0) console.log (underten[getDigit(num, i)] + ` thousand`)
+//         if (i === 4 && getDigit(num, i-1) !== 0){
+//             console.log (ten[getDigit(num, i)]);
+//         } 
+//         else {
+//              if (i === 4) {
+//                 console.log (ten[getDigit(num, i)] +  `thounsand`)
+//             }
+//         }
+
+//     }
+// }
+
+const box = document.querySelector('.box')
 
 
 
-// console.log("jijig useg: " + jijigUseg.test(password));
-// console.log("tom useg: " + tomUseg.test(password));
-// console.log("number: " + number.test(password));
-// console.log("char: " + char.test(password));
-// console.log("len: " + len.test(password));
+
