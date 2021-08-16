@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <title>Document</title>
+  </head>
+  <body>
+    <canvas class="border-2 mx-auto border-black bg-black" id="canvas"></canvas>
+  </body>
+
+  <script>
+    const canvas = document.querySelector("#canvas");
+    const ctx = canvas.getContext("2d");
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    let points = {
+      x: undefined,
+      y: undefined,
+    };
+
+    window.addEventListener("mousemove", (e) => {
+      points.x = e.x;
+      points.y = e.y;
+    });
+
+    class Star {
+      constructor(x, y, xSpeed, ySpeed, raduis, red, green, blue) {
+        this.x = x;
+        this.y = y;
+        this.xSpeed = xSpeed;
+        this.ySpeed = ySpeed;
+        this.raduis = raduis;
+        this.red = red;
+        this.green = green;
+        this.blue = blue;
+      }
+
+      drawStars() {
+        ctx.fillStyle = `rgb(${this.red},${this.green},${this.blue})`;
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.raduis, 0, Math.PI * 2);
+        ctx.fill();
+      }
+
+      move() {
+        if (this.x + this.raduis >= canvas.width || this.x <= this.raduis) {
+          this.xSpeed = -this.xSpeed;
+        }
+
+        if (this.y + this.raduis >= canvas.height || this.y <= this.raduis) {
+          this.ySpeed = -this.ySpeed;
+        }
+
+        this.x += this.xSpeed;
+        this.y += this.ySpeed;
+
+        if (
+          points.x - this.x < 60 &&
+          points.x - this.x > -60 &&
+          points.y - this.y < 60 &&
+          points.y - this.y > -60
+        ) {
+          if (this.raduis <= 60) {
+            this.raduis += 1;
+          }
+            } else if (this.raduis > 5) {
+                 this.raduis -= 1;
+            }   
+      }
+    }
+
+    let stars = [];
+    for (let i = 0; i < 1000; i++) {
+      let raduis = 5;
+      let xP = Math.random() * (canvas.width - raduis * 2) + raduis;
+
+      let yP = Math.random() * (canvas.height - raduis * 2) + raduis;
+
+      let xS = (Math.random() - 0.5) * 5;
+      let yS = (Math.random() - 0.5) * 5;
+
+      let red = Math.floor(Math.random() * 256);
+      let green = Math.floor(Math.random() * 256);
+      let blue = Math.floor(Math.random() * 256);
+
+      let star = new Star(xP, yP, xS, yS, raduis, red, green, blue);
+      stars.push(star);
+    }
+
+    function animate() {
+      requestAnimationFrame(animate);
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      for (let j = 0; j < stars.length; j++) {
+        stars[j].drawStars();
+        stars[j].move();
+      }
+    }
+
+    animate();
+
+    // ctx.fillStyle = 'red';
+    // ctx.fillRect(100, 200, 150, 100) // // x, y, w, h;
+
+    // ctx.beginPath();
+    // ctx.arc(150, 150, 70, 0, Math.PI * 2) // x,y,raduis,start,end. boolean
+    // ctx.fill();
+
+    // ctx.beginPath();
+    // ctx.arc(350, 350, 70, 0, Math.PI * 2) // x,y,raduis,start,end. boolean
+    // ctx.fill();
+
+    // let hour = 0;
+    // let minute = 0;
+    // let second = 1;
+    // setInterval(() => {
+    //     if(second === 60) {
+    //         second = 0;
+    //         minute ++;
+    //     }
+    //     console.log(`${hour} : ${minute} : ${second}`)
+    //     second ++;
+    // }, 100)
+    //     let x = canvas.width/2;
+    //     let y = canvas.height/2;
+    //     let speedX;
+    //     let speedY;
+
+    //     if((Math.random() * 4).toString().split(".")[0] == 0) {
+    //         speedX = -10;
+    //         speedY = -10;
+    //     }
+
+    //     if((Math.random() * 4).toString().split(".")[0] == 1) {
+    //         speedX = 10;
+    //         speedY = -10;
+    //     }
+
+    //     if((Math.random() * 4).toString().split(".")[0] == 2) {
+    //         speedX = 10;
+    //         speedY = 10;
+    //     }
+
+    //     if((Math.random() * 4).toString().split(".")[0] == 3) {
+    //         speedX = 10;
+    //         speedY = -10;
+    //     }
+
+    // function test(){
+    //     requestAnimationFrame(test);
+    //     ctx.clearRect(0,0,canvas.width, canvas.height)
+    //     drawCircle();
+    //     moveBall();
+
+    // }
+    // test();
+
+    // function drawCircle(){
+    //     const red = Math.floor(Math.random() * 256)
+    //     const green = Math.floor(Math.random() * 256)
+    //     const blue = Math.floor(Math.random() * 256)
+
+    //     ctx.beginPath();
+    //     ctx.fillStyle = `red`;
+    //     ctx.arc(x, y, 50, 0, Math.PI * 2, false)
+    //     ctx.fill();
+
+    // }
+    // function moveBall () {
+    //     x += speedX;
+    //     y += speedY;
+    //     if (x >= canvas.width - 50 || x <= 50) {
+    //         speedX = -speedX;
+    //     }
+
+    //     if (y >= canvas.height - 50 || y <= 50) {
+    //         speedY = -speedY;
+    //     }
+    //     // if (y >= canvas.height - 50){
+    //     //     y = canvas.height - 50;
+    //     // } else {
+    //     //     y += 10;
+    //     // }
+
+    // }
+
+    // document.addEventListener('keydown', e => {
+
+    //    if(e.keyCode === 39) {
+    //        x+= 10;
+    //    }
+    //    if(e.keyCode === 40) {
+    //        y += 10;
+    //    }
+    //    if(e.keyCode === 37) {
+    //        x-=10
+    //    }
+    //    if(e.keyCode === 38) {
+    //        y -=10
+    //    }
+    // });
+  </script>
+</html>
