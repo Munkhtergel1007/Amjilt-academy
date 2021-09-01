@@ -25,7 +25,7 @@
 
             <div class="info pt-24 text-center">
                 <p class="dummyClass text-gray-400 text-2xl">My fullname is</p>
-                <p class="font-bold text-4xl mt-2">Narada Muni</p>
+                <p class="font-bold text-4xl mt-2">  </p>
             </div>
 
             <div class="nav py-8 mt-5 w-full flex justify-evenly items-center">
@@ -47,11 +47,18 @@
     
     <main class="container mx-auto mt-72">
         <form class="flex flex-col px-8 w-3/5 py-4 bg-white rounded-xl shadow-xl mx-auto justify-center">
+<<<<<<< Updated upstream
             <input class="py-2 px-4 border-gray-300 rounded-xl border focus:outline-none focus:border-indigo-400 mb-4" type="text" placeholder="Post title" id="title">
             <textarea class="py-2 px-4 border-gray-300 rounded-xl border focus:outline-none focus:border-indigo-400 mb-4" type="text" placeholder="Post text" rows="5" id="body"></textarea>
+=======
+            <input type="button" class="py-3 px-5 rounded-xl bg-indigo-400 text-white cursor-pointer transition duration border border-indigo-400 font-bold hover:bg-white hover:text-indigo-400 my-4" value="Пост үзэх" id="btn"
+            <input class="py-2 px-4 border-gray-300 rounded-xl border focus:outline-none mb-4" type="text" placeholder="Post title" id="title">
+            <textarea class="py-2 px-4 border-gray-300 rounded-xl border focus:outline-none mb-4" type="text" placeholder="Post text" rows="5" id="body"></textarea>
+>>>>>>> Stashed changes
             <input id="btn--post" class="py-3 px-5 rounded-xl bg-indigo-400 text-white cursor-pointer transition duration border border-indigo-400 font-bold hover:bg-white hover:text-indigo-400" type="submit" value="Пост оруулах">
         </form>
     </main>
+    
     
     <script>
 
@@ -64,6 +71,7 @@
         const logout = document.querySelector('#logout');
         const avatar = document.querySelector('#avatar');
 
+        const btn = document.querySelector('#btn');
         // import {Post} from '/data.js';
 
         // POST UI
@@ -95,6 +103,7 @@
         } else {
             location.href = "http://127.0.0.1:5500/login.html"
         };
+    
 
         fullname.addEventListener('mouseover', () => {
             createEl(user, ['fullname'])
@@ -135,6 +144,10 @@
             posts = JSON.parse(localStorage['posts']);
         }
 
+        btn.addEventListener('click', e => {
+            location.href = "http://127.0.0.1:5500/timeline.html"
+        })
+
         let currentUserPosts = posts.filter(el => el.userId === user.id)
 
         let formValid = false;
@@ -158,6 +171,7 @@
                 formValid = true
             }
 
+
             if(!formValid){
                 swal({
                     icon: 'warning',
@@ -167,6 +181,7 @@
                 return;
             } else {
                 let post = new Post(title.value, postBdy.value, user.id);
+                
                 // console.log(post)
                 posts.push(post);
                 localStorage.setItem('posts', JSON.stringify(posts));
