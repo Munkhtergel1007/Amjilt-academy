@@ -1,3 +1,5 @@
+const path = require('path');
+
 const fs = require('fs');
 
 const data = fs.readFileSync(`${__dirname}/../data/users.json`, 'utf-8');
@@ -11,14 +13,16 @@ exports.getLoginController = (req, res) => {
     })
 }
 
+
 exports.postLoginController = (req, res) => {
+  // console.log(objectData)
     const email = req.body.email;
     const password = req.body.password;
     
-    const user = objectData.find(el => el.email === email.toString());
-    if (user) {
-      if (user.password === password) {
-        res.redirect('/userlist')
+    const currentUser = objectData.find(el => el.email === email.toString());
+    if (currentUser) {
+      if (currentUser.password === password) {
+        res.redirect(`/user/${currentUser.id}`)
       } else {
         res.redirect('/login')
       }

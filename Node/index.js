@@ -23,6 +23,7 @@
 const express = require('express');
 const mainRouter = require('./router/mainRouter');
 const authRouter = require('./router/auth');
+const postRouter = require('./router/postRouter')
 const path = require('path');
 const bp = require('body-parser');
 
@@ -34,8 +35,8 @@ app.set('views', 'views');
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(bp.urlencoded({extended: false}))
 
-app.use(authRouter)
+app.use(authRouter);
 app.use(mainRouter);
-
+app.use(postRouter);
 
 app.listen(3000)
