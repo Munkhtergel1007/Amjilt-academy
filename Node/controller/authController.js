@@ -15,7 +15,7 @@ exports.getLoginController = (req, res) => {
 
 
 exports.postLoginController = (req, res) => {
-  // console.log(objectData)
+  // console.log(objectData)  
     const email = req.body.email;
     const password = req.body.password;
     

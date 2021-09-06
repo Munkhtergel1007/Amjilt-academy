@@ -3,12 +3,26 @@
         <h1>Хэрэглэг байхгүй байна..</h1>
     <% } else { %>
         <% for(user of users){ %>
-            <h1 class="text-green-400">
+            <!-- <div class="text-green-400 border flex justify-between p-">
                <a href="/user/<%= user.id %>">
                     <%= user.fullname %>
                </a>
-            </h1>
+            </div> -->
+
+            <div class="border border-black justify-between flex w-96 m-auto bg-gray-200 mb-2">
+                <a href="/user/<%= user.id %>" class="p-4" >
+                    <%= user.fullname %>
+               </a>
+               
+               <form action="/delete" method="post">
+                    <input type="hidden" name="userId" value="<%= user.id %>">
+
+                    <input class="p-4 bg-red-400" type="submit" value="X">
+                </form>
+            </div>
         <% } %>
     <% } %>
+
+
 
 <%-include('include/foot.ejs')%>

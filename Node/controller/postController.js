@@ -13,15 +13,13 @@ exports.getPostController = (req, res) => {
 }
 
 exports.postRegisterController = (req, res) => {
-    const email = req.body.email;
     const fullname = req.body.fullname;
+    const email = req.body.email;
     const number = req.body.number;
     const password = req.body.password;
     const avatar = req.body.avatar;
 
-
-
-    const user = new Member(fullname, number, password, avatar, password);
+    const user = new Member(fullname, email, number, password, avatar);
     user.save();
 
     // console.log(email);
