@@ -1,37 +1,34 @@
-<%-include('include/head.ejs')%>
-
+<%- include('include/head.ejs') %>
 <main class="w-full h-screen flex items-center justify-center bg-gray-100">
-    <form class="w-2/5 rounded shadow-xl p-4 flex flex-col"  action="/edit" method="POST">
-        <label for="fullname" class="font-bold m-2">
-            Fullname
+    <form class="w-2/5 rounded shadow-xl p-4 flex flex-col" action="/edit" method="POST">
+        <label for="username" class="font-bold">
+            username
         </label>
-        <input type="text" placeholder="Fullname" id="fullname" name="fullname" class="py-2 px-4 rounded-md" value="<%= user.fullname%>">
-        <label for="Email" class="font-bold m-2">
-            Email
+        <input value="<%= user.name %>" type="text" placeholder="username" id="username" name="username" class="py-2 px-4 rounded-md border border-gray-300 mb-4">
+
+        <label for="number" class="font-bold">
+            number
         </label>
-        <input type="text" placeholder="Email" id="Email" name="email" class="py-2 px-4 rounded-md" value="<%= user.email%>">
-        <label for="number" class="font-bold m-2">
-            Number
-        </label>
-        <input type="number" placeholder="Number" id="number" name="number" class="py-2 px-4 rounded-md" value="<%= user.number%>">
-        <label for="password" class="font-bold m-2">
-            Password
-        </label>
-        <input type="password" placeholder="Password" id="password" name="password" class="py-2 px-4 rounded-md" value="<%= user.password%>">
-        <label for="avatar" class="font-bold m-2">
+        <input value="<%= user.number %>" type="text" placeholder="number" id="number" name="number" class="py-2 px-4 rounded-md border border-gray-300 mb-4">
+
+        <label for="avatar" class="font-bold">
             avatar
         </label>
-        <input type="text" placeholder="avatar" id="avatar" name="avatar" class="py-2 px-4 rounded-md" value="<%= user.avatar%>">
+        <input value="<%= user.avatar %>" type="text" placeholder="avatar" id="avatar" name="avatar" class="py-2 px-4 rounded-md border border-gray-300 mb-4">
 
-        <input type="hidden" value="<%=user.id%>" name="userId">
+        <label for="email" class="font-bold">
+            Email
+        </label>
+        <input value="<%= user.email %>" type="text" placeholder="Email" id="email" name="email" class="py-2 px-4 rounded-md border border-gray-300 mb-4">
 
-        <input type="submit" value="Засах"  class="mt-4 py-2 px-4 rounded-md border border-gray-200">
+        <label for="password" class="font-bold">
+            Password
+        </label>
+        <input value="<%= user.password %>" type="password" placeholder="Password" id="password" name="password" class="py-2 px-4 rounded-md border border-gray-300 mb-4">
+
+        <input type="hidden" value="<%= user.id %>" name="userId">
+
+        <input class="py-2 px-4 rounded-md border border-gray-300" type="submit" value="Засах">
     </form>
-
-
 </main>
-
-
-
-
-<%-include('include/foot.ejs')%>
+<%- include('include/foot.ejs') %>

@@ -1,10 +1,6 @@
 const path = require('path');
 const fs = require('fs');
-
-const data = fs.readFileSync(`${__dirname}/../data/users.json`, 'utf-8');
-
-const objectData = JSON.parse(data)
-const Member = require('../model/member');
+const Student = require('../model/member')
 
 exports.getPostController = (req, res) => {
     res.render('register', {
@@ -19,15 +15,14 @@ exports.postRegisterController = (req, res) => {
     const password = req.body.password;
     const avatar = req.body.avatar;
 
-    const user = new Member(fullname, email, number, password, avatar);
-    user.save();
+    const user = new Student({
+        name: fullname,
+    })
+   
+    user.save()
+    .then(result => {
+        console.log(result)
+        res.redirect('/');
+    })
 
-    // console.log(email);
-    // console.log(fullname);
-    // console.log(number)
-    // console.log(password)
-    // console.log(avatar)
-
-    console.log(user)
-    res.redirect('/');
 }

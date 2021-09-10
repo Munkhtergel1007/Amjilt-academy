@@ -19,24 +19,28 @@
 // server.listen(3000, () => {
 //     console.log('3000 portiig sonsoj bna')
 // });
-
+const path = require('path');
 const express = require('express');
+const bp = require('body-parser');
+const mongoose = require('mongoose')
+
 const mainRouter = require('./router/mainRouter');
 const authRouter = require('./router/auth');
-const postRouter = require('./router/postRouter')
-const path = require('path');
-const bp = require('body-parser');
 
 const app = express();
 
 app.set('view engine', 'ejs');
 app.set('views', 'views');
 
-app.use(express.static(path.join(__dirname, 'public')));
 app.use(bp.urlencoded({extended: false}))
+app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(authRouter);
 app.use(mainRouter);
-app.use(postRouter);
 
-app.listen(3000)
+
+mongoose.connect('mongodb://127.0.0.1:27017/academy')
+.then(result => {
+    app.listen(3000)
+})
+.catch(err => console.log(err))

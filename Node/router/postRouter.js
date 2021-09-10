@@ -4,7 +4,6 @@ const postController = require('../controller/postController');
 
 router.get('/register', postController.getPostController)
 
-
 router.post('/signup', postController.postRegisterController)
 
 module.exports = router;

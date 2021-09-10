@@ -1,11 +1,10 @@
-const expess = require('express');
-const router = expess.Router();
-const authentication = require('../controller/authController')
+const express = require('express');
+const router = express.Router();
 
+const authentication = require('../controller/authController');
 
 router.get('/login', authentication.getLoginController)
 
+router.post('/user/login' , authentication.postLoginController)
 
-router.post('/user/login', authentication.postLoginController)
-
-module.exports = router;
+module.exports = router
