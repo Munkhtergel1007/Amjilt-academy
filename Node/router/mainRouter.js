@@ -16,8 +16,11 @@ router.post('/edit', mainController.postEditController)
 
 router.post('/delete', mainController.postDeleteController)
 
-router.get('/admin', mainController.getAdminController)
+// router.get('/admin', mainController.createAdminController)
+
+router.post('/getPost', mainController.getPostController)
+
+router.get('/timeline', mainController.getTimelineController)
+
 
 module.exports = router;
-
-// MVC - Model, View, Controller
